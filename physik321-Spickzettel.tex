@@ -5,23 +5,55 @@
 }
 
 \ihead{physik321 Spickzettel}
-\title{}
+
+\title{physik321 Spickzettel}
 \author{
 	Martin Ueding \\
-	\small{\href{mailto:mu@martin-ueding.de}{mu@martin-ueding.de}}
+	\small{\href{mailto:mu@uni-bonn.de}{mu@uni-bonn.de}}
 }
-%\author{
-%	Martin Ueding \\
-%	\small{\href{mailto:mu@uni-bonn.de}{mu@uni-bonn.de}}
-%}
 
 \begin{document}
 
-\maketitle
 
-%\newpage
-%\tableofcontents
-%\newpage
+elektrostatisches Potential:
+\[
+	\varphi\del{\vec x} = \frac{1}{4 \pi \varepsilon_0} \int \dif{^3 x'} \, \frac{\rho\del{\vec x'}}{\abs{\vec x - \vec x'}}
+\]
+
+magnetostatisches Potential:
+\[
+	\vec A = \frac{\mu_0}{4 \pi} \int \dif{^3 x'} \, \frac{\vec j\del{\vec x'}}{\abs{\vec x - \vec x'}}
+\]
+
+elektrische Feldstärke:
+\[
+	\vec E = - \vnabla \varphi
+\]
+
+magnetische Induktion:
+\[
+	\vec B = \curl \vec A
+\]
+
+Kraft auf Stromfaden:
+\[
+	\vec F_{1,2}
+	= I_1 \oint \dif{\vec x_1} \, \times \vec B_2\del{\vec x_1}
+	= \int \dif{^3 x} \, \del{\vec j \times \vec B}
+\]
+
+Drehmoment $\vec M = \vec x \times \vec F$ auf Stromdichte:
+\[
+	\vec M
+	= \int \dif{^3 x} \, \del{\vec x \times \del{\vec j \times \vec B}}
+\]
+
+Ampère'sches Gesetz:
+\[
+	\vec F_{1,2}
+	= \frac{\mu_0}{4 \pi} I_1 I_2 \oint \oint \frac{\dif \vec x_1 \times \del{\dif \vec x_2 \times \vec x_{1,2}}}{x_{1,2}^3}
+	= - \frac{\mu_0}{4 \pi} I_1 I_2 \oint \oint \inner{\dif x_1}{\dif x_2} \frac{\vec x_{1,2}}{x_{1,2}^3}
+\]
 
 %\IfFileExists{\bibliographyfile}{
 %	\bibliography{\bibliographyfile}
