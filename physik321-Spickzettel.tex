@@ -16,35 +16,68 @@
 
 \begin{document}
 
-total antisymmetrischer Tensor:
-\begin{gather*}
+\section{total antisymmetrischer Tensor}
+
+Definition:
+\[
 	\epsilon_{ijk}
 	=
 	\begin{cases}
 		1 & \text{$ijk$ ist eine gerade Permutation von 1, 2, 3} \\
 		-1 & \text{$ijk$ ist eine ungerade Permutation von 1, 2, 3} \\
 		0 & \text{sonst}
-	\end{cases} \\
-	%
+	\end{cases}
+\]
+
+Kontraktion mit einem Index:
+\[
 	\epsilon_{ijk} \epsilon^{mnk} = \del{
 		\delta_i{}^m \delta_j{}^n - \delta_j{}^j \delta_i{}^n
-	} \\
-	%
-\end{gather*}
+	}
+\]
+
+Kontraktion mit drei Indizes:
+\[
+	\epsilon_{ijk} \epsilon^{ijk} = 3!
+\]
+
+\section{$\delta$-Distribution}
+
+definierende Eigenschaft (setze $f \equiv 1$):
+\[
+	\intop_\Omega \dif x' \, f\del{x'} \delta\del{x - x'}
+	=
+	\begin{cases}
+		f(x) & x \in \Omega \\
+		0 & \text{sonst}
+	\end{cases}
+\]
+
+\section{Elementarladungen und -ströme}
+
+Punktladung:
+\[
+	\rho\del{\vec x} = \sum_{i = 1}^n q_i \delta\del{\vec x - \vec x_i}
+\]
+
+Stromdichte einer Ladungsverteilung:
+\[
+	\vec j = \rho \vec v
+\]
 
 \section{Potentiale}
 
 elektrostatisches Potential:
 \[
 	\varphi\del{\vec x}
-	= \frac{1}{4 \pi \varepsilon_0} \int \dif{^3 x'} \,
+	= \frac{1}{4 \pi \varepsilon_0} \int \dif{V'} \,
 	\frac{\rho\del{\vec x'}}{\abs{\vec x - \vec x'}}
 \]
 
 magnetostatisches Potential:
 \[
 	\vec A
-	= \frac{\mu_0}{4 \pi} \int \dif{^3 x'} \,
+	= \frac{\mu_0}{4 \pi} \int \dif{V'} \,
 	\frac{\vec j\del{\vec x'}}{\abs{\vec x - \vec x'}}
 \]
 
@@ -75,8 +108,8 @@ nicht lösbar):
 \[
 	% TODO Ist die Reihenfolge im hinteren Integral so korrekt?
 	\varphi\del{\vec x}
-	= \intop_{V} \dif{^3 x'} \, \rho\del{\vec x'} G
-	- \varepsilon_0 \ointop_{\partial V} \dif{^2 x'} \,
+	= \intop_{V} \dif{V'} \, \rho\del{\vec x'} G
+	- \varepsilon_0 \ointop_{\partial V} \dif A \,
 	\del{\varphi \laplace G - G \laplace \varphi}
 \]
 
@@ -85,20 +118,21 @@ nicht lösbar):
 Kraft auf Ladungsdichte:
 \[
 	\vec F
-	= \int \dif{^3 x'} \rho E
+	= \int \dif{V'} \rho E
 \]
 
 Kraft auf Stromfaden und -dichte:
 \[
 	\vec F_{1,2}
 	= I_1 \oint \dif{\vec x_1} \, \times \vec B_2\del{\vec x_1}
-	= \int \dif{^3 x} \, \del{\vec j \times \vec B}
+	= \int \dif{V} \, \del{\vec j \times \vec B}
 \]
 
 Drehmoment $\vec M = \vec x \times \vec F$ auf Stromdichte:
 \[
 	\vec M
-	= \int \dif{^3 x} \, \del{\vec x \times \del{\vec j \times \vec B}}
+	= \int \dif{V} \, \del{\vec x \times \del{\vec j \times \vec B}}
+	\approx \vec m \times \vec B
 \]
 
 Ampère'sches Gesetz:
@@ -113,19 +147,20 @@ Ampère'sches Gesetz:
 Monopolmoment:
 \[
 	q
-	= \int \dif{^3 x'} \rho\del{\vec r'}
+	= \int \dif{V'} \, \rho\del{\vec x'}
 \]
 
 Dipolmoment:
 \[
 	\vec p
-	= \int \dif{^3 x'} \vec r' \rho\del{\vec r'}
+	= \int \dif{V'} \, \vec x' \rho\del{\vec x'}
 \]
 
 magnetisches Moment:
 \[
 	\vec m
-	= \half \int \dif{^3 x'} \del{\vec r \times \vec j}
+	= \half \int \dif{V'} \, \del{\vec x \times \vec j}
+	= \half I \oint \vec x \times \dif l
 \]
 
 
