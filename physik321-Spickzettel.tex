@@ -16,28 +16,79 @@
 
 \begin{document}
 
+total antisymmetrischer Tensor:
+\begin{gather*}
+	\epsilon_{ijk}
+	=
+	\begin{cases}
+		1 & \text{$ijk$ ist eine gerade Permutation von 1, 2, 3} \\
+		-1 & \text{$ijk$ ist eine ungerade Permutation von 1, 2, 3} \\
+		0 & \text{sonst}
+	\end{cases} \\
+	%
+	\epsilon_{ijk} \epsilon^{mnk} = \del{
+		\delta_i{}^m \delta_j{}^n - \delta_j{}^j \delta_i{}^n
+	} \\
+	%
+\end{gather*}
+
+\section{Potentiale}
 
 elektrostatisches Potential:
 \[
-	\varphi\del{\vec x} = \frac{1}{4 \pi \varepsilon_0} \int \dif{^3 x'} \, \frac{\rho\del{\vec x'}}{\abs{\vec x - \vec x'}}
+	\varphi\del{\vec x}
+	= \frac{1}{4 \pi \varepsilon_0} \int \dif{^3 x'} \,
+	\frac{\rho\del{\vec x'}}{\abs{\vec x - \vec x'}}
 \]
 
 magnetostatisches Potential:
 \[
-	\vec A = \frac{\mu_0}{4 \pi} \int \dif{^3 x'} \, \frac{\vec j\del{\vec x'}}{\abs{\vec x - \vec x'}}
+	\vec A
+	= \frac{\mu_0}{4 \pi} \int \dif{^3 x'} \,
+	\frac{\vec j\del{\vec x'}}{\abs{\vec x - \vec x'}}
 \]
 
-elektrische Feldstärke:
+\section{Felder}
+
+elektrostatische Feldstärke:
 \[
 	\vec E = - \vnabla \varphi
 \]
 
-magnetische Induktion:
+magnetostatische Induktion:
 \[
 	\vec B = \curl \vec A
 \]
 
-Kraft auf Stromfaden:
+\section{Randwertprobleme}
+
+Green'sche Funktion:
+\[
+	G\del{\vec x, \vec x'}
+	\eqnsep
+	\laplace G\del{\vec x, \vec x'}
+	= \frac{1}{\varepsilon_0} \delta\del{\vec x - \vec x'} \; \text{innerhalb $V$}
+\]
+
+Lösung der Poissongleichung für gegebene Ladungsverteilung $\rho$ (allgemein so
+nicht lösbar):
+\[
+	% TODO Ist die Reihenfolge im hinteren Integral so korrekt?
+	\varphi\del{\vec x}
+	= \intop_{V} \dif{^3 x'} \, \rho\del{\vec x'} G
+	- \varepsilon_0 \ointop_{\partial V} \dif{^2 x'} \,
+	\del{\varphi \laplace G - G \laplace \varphi}
+\]
+
+\section{Kräfte}
+
+Kraft auf Ladungsdichte:
+\[
+	\vec F
+	= \int \dif{^3 x'} \rho E
+\]
+
+Kraft auf Stromfaden und -dichte:
 \[
 	\vec F_{1,2}
 	= I_1 \oint \dif{\vec x_1} \, \times \vec B_2\del{\vec x_1}
@@ -56,6 +107,27 @@ Ampère'sches Gesetz:
 	= \frac{\mu_0}{4 \pi} I_1 I_2 \oint \oint \frac{\dif \vec x_1 \times \del{\dif \vec x_2 \times \vec x_{1,2}}}{x_{1,2}^3}
 	= - \frac{\mu_0}{4 \pi} I_1 I_2 \oint \oint \inner{\dif x_1}{\dif x_2} \frac{\vec x_{1,2}}{x_{1,2}^3}
 \]
+
+\section{Multipolmomente}
+
+Monopolmoment:
+\[
+	q
+	= \int \dif{^3 x'} \rho\del{\vec r'}
+\]
+
+Dipolmoment:
+\[
+	\vec p
+	= \int \dif{^3 x'} \vec r' \rho\del{\vec r'}
+\]
+
+magnetisches Moment:
+\[
+	\vec m
+	= \half \int \dif{^3 x'} \del{\vec r \times \vec j}
+\]
+
 
 %\IfFileExists{\bibliographyfile}{
 %	\bibliography{\bibliographyfile}
