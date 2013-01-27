@@ -73,7 +73,7 @@ definierende Eigenschaft (setze $f \equiv 1$):
 
 \section{Elementarladungen und -ströme}
 
-Punktladung:
+$n$ Punktladungen:
 \[
 	\rho\del{\vec x} = \sum_{i = 1}^n q_i \delta\del{\vec x - \vec x_i}
 \]
@@ -102,6 +102,11 @@ magnetostatisches Potential:
 	\vec A
 	= \frac{\mu_0}{4 \pi} \int \dif{V'} \,
 	\frac{\vec j\del{\vec x'}}{\abs{\vec x - \vec x'}}
+\]
+
+elektromagnetisches Potential in Lorenzeichung ($\partial_\mu A^\mu = 0$):
+\[
+	\dalambert A^\mu = \mu_0 j^\mu
 \]
 
 \section{Felder}
@@ -171,19 +176,32 @@ Ampère'sches Gesetz:
 
 \section{Multipolmomente}
 
-Monopolmoment:
+elektrisches Monopolmoment:
 \[
 	q
 	= \int \dif{V'} \, \rho\del{\vec x'}
 \]
 
-Dipolmoment:
+elektrisches Dipolmoment:
 \[
 	\vec p
 	= \int \dif{V'} \, \vec x' \rho\del{\vec x'}
 \]
 
-magnetisches Moment:
+allgemeine Multipolmomente
+\[
+	Q_{lm}
+	=
+	\sqrt{\frac{4\pi}{2l+1}}
+	\int \dif{\phi'}
+	\int \dif{\cos\del{\theta'}}
+	\int \dif{r'}
+	\,
+	r'^2 r'_l \rho\del{r'}
+	Y^*_{lm} \del{\theta', \phi'}
+\]
+
+magnetisches Dipolmoment:
 \[
 	\vec m
 	= \half \int \dif{V'} \, \del{\vec x \times \vec j}
