@@ -113,7 +113,7 @@ elektromagnetisches Potential in Lorenzeichung ($\partial_\mu A^\mu = 0$):
 
 elektrostatische Feldstärke:
 \[
-	\vec E = - \vnabla \varphi
+	\vec E = - \vnabla \varphi - \dod{\vec A}t
 \]
 
 magnetostatische Induktion:
@@ -121,6 +121,7 @@ magnetostatische Induktion:
 	\vec B = \curl \vec A
 \]
 
+Biot-Savart:
 \[
 	\vec B = \frac{\mu_0}{4 \pi} \int \dif{V'} \, \vec j \times \frac{\vec x - \vec x'}{\abs{\vec x - \vec x'}^3}
 \]
@@ -237,6 +238,14 @@ Maxwell'scher Spannungstensor:
 	- \half \del{\inner{\vec D}{\vec E} + \inner{\vec B}{\vec H}} \tens 1
 \]
 
+Impulserhaltungssatz:
+\[
+	\varrho \vec E
+	+ \vec j \times \vec B
+	+ \frac1{c^2} \dpd{\vec S}t
+	+ \divergence{\hat{\tens T}}
+	= 0
+\]
 
 %\IfFileExists{\bibliographyfile}{
 %	\bibliography{\bibliographyfile}
